@@ -44,21 +44,21 @@ public class PurchasesController {
 
     }
     @GetMapping("/getMyPurchases")
-    public Iterable<CouponPurchaseDto> getNyPurchases(@RequestParam("customerId") int customerId, @RequestParam("pageNumber") int pageNumber) throws ServerException {
-        Iterable<CouponPurchaseDto> myPurchases = purchasesLogic.getPurchasesByCustomerId(customerId, pageNumber);
+    public List<CouponPurchaseDto> getNyPurchases(@RequestParam("customerId") int customerId, @RequestParam("pageNumber") int pageNumber) throws ServerException {
+        List<CouponPurchaseDto> myPurchases = purchasesLogic.getPurchasesByCustomerId(customerId, pageNumber);
         return myPurchases;
 
     }
     @GetMapping("/getExtendedOnPurchases")
-    public Iterable<CouponPurchaseDto> getExtendedNyPurchases(@RequestParam("customerId")int customerId, @RequestParam("pageNumber") int pageNumber)throws ServerException {
-       Iterable<CouponPurchaseDto> moreInformation = purchasesLogic.getExtendedOnPurchases(customerId,pageNumber);
+    public List<CouponPurchaseDto> getExtendedNyPurchases(@RequestParam("customerId")int customerId, @RequestParam("pageNumber") int pageNumber)throws ServerException {
+        List<CouponPurchaseDto> moreInformation = purchasesLogic.getExtendedOnPurchases(customerId,pageNumber);
         return moreInformation;
 
     }
 
     @GetMapping("/getCustomersPurchaseByCompanyId")
-    public Iterable<CustomerPurchasesDto> getCusPurByCompanyIdByPageNumber(@RequestParam("companyId") int companyId, @RequestParam("pageNUmber") int pageNumber) throws ServerException {
-        Iterable<CustomerPurchasesDto>customerPurDto=purchasesLogic.getAllCustomerPurchasesByCompanyId(companyId, pageNumber);
+    public  List<CustomerPurchasesDto> getCusPurByCompanyIdByPageNumber(@RequestParam("companyId") int companyId, @RequestParam("pageNUmber") int pageNumber) throws ServerException {
+        List<CustomerPurchasesDto>customerPurDto=purchasesLogic.getAllCustomerPurchasesByCompanyId(companyId, pageNumber);
         return customerPurDto;
     }
 
